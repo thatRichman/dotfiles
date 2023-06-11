@@ -16,3 +16,5 @@ vim.wo.relativenumber = true
 
 -- highlight trailing whitespace --
 vim.fn.matchadd('errorMsg', [[\s\+$]])
+
+vim.opt.background = "dark"
