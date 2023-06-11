@@ -8,6 +8,7 @@ local M = {
       commit = "0e6b2ed705ddcff9738ec4ea838141654f12eeef",
     },
   },
+  opts = { servers = { rust_analyzer } }
 }
 
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
@@ -78,7 +79,7 @@ function M.config()
 
   local config = {
     -- disable virtual text
-    virtual_text = false,
+    virtual_text = true,
     -- show signs
     signs = {
       active = signs,
