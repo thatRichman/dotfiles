@@ -3,7 +3,6 @@ require "keymaps"
 require "Lazy"
 require "autocommands"
 require "leap"
-require "neorg"
 
 -- Disable netrw -- 
 vim.g.loaded_netrw = true
