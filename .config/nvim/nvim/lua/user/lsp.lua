@@ -47,7 +47,7 @@ function M.config()
     end
 
     lsp_keymaps(bufnr)
-    require("illuminate").on_attach(client)
+    -- require("illuminate").on_attach(client)
   end
 
   for _, server in pairs(require("utils").servers) do

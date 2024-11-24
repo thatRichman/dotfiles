@@ -96,6 +96,13 @@ function M.config()
       prefix = "",
       suffix = "",
     },
+    init_options = {
+      rustfmt = {
+        rangeFormatting = {
+          enable = true,
+        }
+      }
+    }
   }
 
   vim.diagnostic.config(config)

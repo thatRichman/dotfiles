@@ -1,0 +1,61 @@
+\
+ls
+cd src/
+ls
+vim parser.rs
+vim ~/.config/nushell/config.nu
+^ls
+sed 
+open --raw lib.rs
+open lib.rs
+open lib.rs | where $it =~ "parser"
+open --raw lib.rs | where $it =~ "parser"
+open --raw lib.rs | find "parser"
+vim lib.rs
+config load
+config
+vim
+^vim
+vim src/lib.rs
+ls
+ls | where modified > 2
+ls | where modified > "2 weeks ago"
+ls | where modified > "2024-02-01"
+ls | where modified > "2024-02-01" | as date
+ls | where modified > ("2024-02-01" | as date)
+ls | where modified > ("2024-02-01" | into date)
+ls | where modified > ("2024-02-01" | into)
+ls
+ls | where type == "file"
+ls
+find
+^find
+^find -h
+^find --help
+find --help
+ls
+ls --raw
+&ls
+^ls
+ls
+vim src/reader.rs
+cargo doc --no-deps
+ls
+cd target/doc/
+ls
+open samplesheet/all.html
+ls
+firefox samplesheet/all.html
+ls
+cd ../..
+ls
+vim src/reader.rs
+cargo doc --no-deps
+firefox target/doc/samplesheet/index.html
+ls
+vim src/parser.rs
+cargo doc --no-deps
+firefox target/doc/samplesheet/index.html
+vim src/parser.rs
+cargo doc --no-deps
+firefox target/doc/samplesheet/index.html

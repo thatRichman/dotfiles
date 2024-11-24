@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/spencer/projects/ptooey/src/db'
+let g:netrw_dirhist_4='/home/spencer/projects/tetanus/src/io'
+let g:netrw_dirhist_3='/home/spencer/projects/tetanus/src'
+let g:netrw_dirhist_2='/home/spencer/projects/tetanus/src/io'
+let g:netrw_dirhist_1='/home/spencer/projects/tetanus'
