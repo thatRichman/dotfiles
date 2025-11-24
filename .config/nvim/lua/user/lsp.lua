@@ -17,6 +17,8 @@ function M.config()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
+  vim.lsp.config("*", { capabilities = capabilities })
+
   local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
     local keymap = vim.api.nvim_buf_set_keymap
@@ -36,7 +38,6 @@ function M.config()
     keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   end
 
-  local lspconfig = require "lspconfig"
   local on_attach = function(client, bufnr)
     if client.name == "tsserver" then
       client.server_capabilities.documentFormattingProvider = false
@@ -50,21 +51,17 @@ function M.config()
     require("illuminate").on_attach(client)
   end
 
-  for _, server in pairs(require("utils").servers) do
-    Opts = {
-      on_attach = on_attach,
-      capabilities = capabilities,
-    }
-
-    server = vim.split(server, "@")[1]
-
-    local require_ok, conf_opts = pcall(require, "settings." .. server)
-    if require_ok then
-      Opts = vim.tbl_deep_extend("force", conf_opts, Opts)
-    end
-
-    lspconfig[server].setup(Opts)
-  end
+  vim.lsp.config('ocamllsp', {
+    on_attach = on_attach,
+    cmd = {
+      "/home/spencer/projects/terrateam/docker/terrat/dev/run-lsp.sh"
+      -- "/home/spencer/.opam/5.3.0/bin/ocamllsp",
+      -- "--fallback-read-dot-merlin"
+    },
+    filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+    root_markers = { "*.merlin", "*.opam", "esy.json", "dune-project", "dune-workspace", ".merlin" },
+    capabilities = capabilities
+  })
 
   local signs = {
     { name = "DiagnosticSignError", text = "" },
@@ -114,6 +111,8 @@ function M.config()
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
     border = "rounded",
   })
+
+  vim.lsp.enable({ "ocamllsp", "lua_ls" })
 end
 
 return M
